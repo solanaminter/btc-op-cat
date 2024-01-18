@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scripting Sorcery: The Tale of OP_CAT</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Scripting Sorcery: The Tale of OP_CAT</h1>
+    </header>
+    
+    <!-- Banner for the cybernetic orange cat -->
+    <div class="banner"></div>
+
+    <main>
+        <section id="introduction" class="content-section">
+            <h2>Introduction to Bitcoin Scripting and OP_CAT</h2>
+            <p>Bitcoin's scripting system is a powerful feature that enables complex transaction types beyond simple transfers. OP_CAT is a script operation that concatenates two strings, playing a crucial role in script processing. However, its potential to cause exponential memory usage has led to discussions and changes in its implementation.</p>
+        </section>
+        <section id="interactive-simulator" class="content-section">
+            <h2>Script Simulator</h2>
+            <p>Bitcoin scripting is a simple, stack-based programming language used within the Bitcoin protocol to define the conditions under which a transaction is valid. Introduced in 2009 as part of the original Bitcoin implementation, this scripting language allows for the creation of complex transaction types, enhancing the flexibility and functionality of Bitcoin beyond mere transfers of value.</p>
+            <p>Typical operations in Bitcoin scripting include <code>OP_DUP</code>, which duplicates the top stack item, and <code>OP_CAT</code>, which concatenates two strings from the top of the stack. Here you can simulate how these operations manipulate the stack:</p>
+            <div id="script-inputs">
+                <button id="op_dup">OP_DUP</button>
+                <button id="op_cat">OP_CAT</button>
+                <button id="reset">Reset</button>
+            </div>
+            <div id="stack-display" class="stack-display"></div>
+            <p>Example: Adding <code>Item1</code> and <code>Item2</code> to the stack and applying <code>OP_CAT</code> would result in <code>Item1Item2</code>.</p>
+        </section>
+        <section id="discussion" class="content-section">
+            <h2>Key Points about OP_CAT</h2>
+            <ul>
+                <li>Exponential Memory Usage: OP_CAT can lead to exponential memory usage, as each call doubles the size of the data.</li>
+                <li>Interaction with OP_DUP: When used with OP_DUP, the memory usage can increase significantly, as each OP_DUP, OP_CAT call doubles the size of the data.</li>
+                <li>Alternatives to OP_CAT: Discussions on alternatives focus on enforcing recursive covenants in a more memory-efficient manner.</li>
+                <li>Disabled in Current Bitcoin Versions: Due to concerns about bugs and potential exploits, OP_CAT is disabled in current Bitcoin versions.</li>
+            </ul>
+        </section>
+        <section id="alternatives-updates" class="content-section">
+            <h2>Alternatives and Updates</h2>
+            <p>While OP_CAT is currently disabled, the community continuously explores alternatives that offer similar functionality without the associated risks. These discussions are crucial for the evolution and security of the Bitcoin protocol.</p>
+        </section>
+        <section id="quiz" class="content-section">
+            <h2>Test Your Knowledge</h2>
+            <div id="quiz-questions">
+                <div class="quiz-question">
+                    <p>Question 1: What does OP_CAT do in Bitcoin scripting?</p>
+                    <input type="radio" id="answer1a" name="question1" value="Concatenates two strings">
+                    <label for="answer1a">Concatenates two strings</label><br>
+                    <input type="radio" id="answer1b" name="question1" value="Duplicates the top item on the stack">
+                    <label for="answer1b">Duplicates the top item on the stack</label><br>
+                    <input type="radio" id="answer1c" name="question1" value="Divides two numbers">
+                    <label for="answer1c">Divides two numbers</label>
+                </div>
+                <div class="quiz-question">
+                    <p>Question 2: What is a potential issue with using OP_CAT repeatedly?</p>
+                    <input type="radio" id="answer2a" name="question2" value="Exponential memory usage">
+                    <label for="answer2a">Exponential memory usage</label><br>
+                    <input type="radio" id="answer2b" name="question2" value="Decreases transaction fees">
+                    <label for="answer2b">Decreases transaction fees</label><br>
+                    <input type="radio" id="answer2c" name="question2" value="Increases network speed">
+                    <label for="answer2c">Increases network speed</label>
+                </div>
+                <div class="quiz-question">
+                    <p>Question 3: Which operation, when used with OP_CAT, can significantly increase memory usage?</p>
+                    <input type="radio" id="answer3a" name="question3" value="OP_DUP">
+                    <label for="answer3a">OP_DUP</label><br>
+                    <input type="radio" id="answer3b" name="question3" value="OP_HASH160">
+                    <label for="answer3b">OP_HASH160</label><br>
+                    <input type="radio" id="answer3c" name="question3" value="OP_EQUALVERIFY">
+                    <label for="answer3c">OP_EQUALVERIFY</label>
+                </div>
+                <div class="quiz-question">
+                    <p>Question 4: What is an alternative purpose for using OP_CAT in Bitcoin scripting?</p>
+                    <input type="radio" id="answer4a" name="question4" value="Enforcing recursive covenants">
+                    <label for="answer4a">Enforcing recursive covenants</label><br>
+                    <input type="radio" id="answer4b" name="question4" value="Reducing transaction time">
+                    <label for="answer4b">Reducing transaction time</label><br>
+                    <input type="radio" id="answer4c" name="question4" value="Increasing block size">
+                    <label for="answer4c">Increasing block size</label>
+                </div>
+                <div class="quiz-question">
+                    <p>Question 5: Why was OP_CAT disabled in current Bitcoin versions?</p>
+                    <input type="radio" id="answer5a" name="question5" value="Concerns about potential bugs and exploits">
+                    <label for="answer5a">Concerns about potential bugs and exploits</label><br>
+                    <input type="radio" id="answer5b" name="question5" value="To increase mining rewards">
+                    <label for="answer5b">To increase mining rewards</label><br>
+                    <input type="radio" id="answer5c" name="question5" value="To decrease transaction fees">
+                    <label for="answer5c">To decrease transaction fees</label>
+                </div>
+
+                <div id="celebration-banner" class="hidden">
+                    <h2>Congratulations! 🎉</h2>
+                    <p>You've mastered OP_CAT!</p>
+                </div>
+
+
+            </div>
+            <button id="submit-quiz">Submit</button>
+            <div id="quiz-results"></div>
+        </section>
+    </main>
+    <footer>
+        <p>© 2024 Bitcoin Scripting Academy</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
